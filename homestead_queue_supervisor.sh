@@ -39,7 +39,7 @@ php $path/artisan --timeout=240 queue:listen" > /usr/local/bin/run_queue.sh
                 then
                     echo -e "\e[91mSupervisor queue already configured for the given path\e[39m"
             else
-                echo "php $path --timeout=240 queue:listen" >> /usr/local/bin/run_queue.sh
+                echo "php $path --timeout=300 queue:listen" >> /usr/local/bin/run_queue.sh
             fi
 
         fi
