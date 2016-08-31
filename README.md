@@ -15,6 +15,15 @@ The second and last step is to run the script. It will ask the path to your proj
 source <(curl -s https://raw.githubusercontent.com/gmooren/laravel-homestead-queue-supervisor/master/homestead_queue_supervisor.sh)
 ```
 
+### Artisan queue command
+Supervisor will execute the following command:
+
+```bash
+php artisan --timeout=300 queue:listen
+```
+
+You can add options to the command or change the command in `/usr/local/bin/run_queue.sh`
+
 ## Future work
 This bash script is very basic at the moment. Extending the script with options in order to specify things like timeouts, env, retry etc. is on the roadmap.
 
