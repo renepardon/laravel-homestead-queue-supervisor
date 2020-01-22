@@ -26,7 +26,7 @@ stdout_logfile=/var/log/laraqueue.out.log" > /etc/supervisor/conf.d/laravel-queu
         if [ ! -f /usr/local/bin/run-laravel-queue.sh ]; then
             # Remember to use queue:work on production for better performance!
             echo "#!/bin/bash
-php $path/artisan --timeout=240 queue:listen" > /usr/local/bin/run-laravel-queue.sh
+php $path/artisan --timeout=300 queue:listen" > /usr/local/bin/run-laravel-queue.sh
 
             chmod +x /usr/local/bin/run-laravel-queue.sh
 
@@ -36,7 +36,7 @@ php $path/artisan --timeout=240 queue:listen" > /usr/local/bin/run-laravel-queue
             if grep -q "$path" /usr/local/bin/run-laravel-queue.sh; then
                 echo -e "${bold}Supervisor queue already configured for the given path${normal}"
             else
-                echo "php $path --timeout=300 queue:listen" >> /usr/local/bin/run-laravel-queue.sh
+                echo "php $path/artisan --timeout=300 queue:listen" >> /usr/local/bin/run-laravel-queue.sh
             fi
         fi
     fi
